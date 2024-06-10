@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-06-06 20:42+0900\n"
+"POT-Creation-Date: 2024-06-10 19:40+0900\n"
 "PO-Revision-Date: 2024-06-06 20:44+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ko\n"
@@ -74,37 +74,45 @@ msgstr "저장"
 msgid "Say something"
 msgstr "무엇이든 입력하세요."
 
-#: app/routes.py:30
+#: app/routes.py:36
 msgid "Your post is now live!"
 msgstr "등록되었습니다!"
 
-#: app/routes.py:81
+#: app/routes.py:87
 msgid "Congratulations, you are now a registered user!"
 msgstr "가입을 축하합니다!"
 
-#: app/routes.py:97
+#: app/routes.py:103
 msgid "Invalid username or password"
 msgstr "잘못된 아이디 또는 비밀번호"
 
-#: app/routes.py:123
+#: app/routes.py:129
 msgid "Check your email for the instructions to reset your password"
 msgstr "비밀번호 초기화 안내가 이메일로 전송되었습니다."
 
-#: app/routes.py:141
+#: app/routes.py:147
 msgid "Your password has been reset."
 msgstr "비밀번호가 초기화되었습니다."
 
-#: app/routes.py:184
+#: app/routes.py:190
 msgid "Your changes have been saved."
 msgstr "변경사항이 저장되었습니다."
 
-#: app/routes.py:202
+#: app/routes.py:208
 msgid "You cannot follow yourself!"
 msgstr "자기 자신을 팔로우 할 수는 없습니다!"
 
-#: app/routes.py:222
+#: app/routes.py:228
 msgid "You cannot unfollow yourself!"
 msgstr "자기 자신을 팔로우 취소할 수는 없습니다!"
+
+#: app/translate.py:8
+msgid "ERROR: the translation service is not configured."
+msgstr "오류: 번역 서비스가 설정되지 않았습니다."
+
+#: app/translate.py:19
+msgid "ERROR: the translation service failed."
+msgstr "오류: 번역 실패"
 
 #: app/templates/404.html:4
 msgid "Not Found"
@@ -126,6 +134,10 @@ msgstr "관리자에게 알렸습니다. 이용에 불편을 끼쳐 죄송합니
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s %(when)s"
+
+#: app/templates/_post.html:20
+msgid "Translate"
+msgstr "번역"
 
 #: app/templates/base.html:9
 msgid "Welcome to Microblog!"
