@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">번호</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for element in send %}
+      <tr>
+        <th scope="row">{{ loop.index }}번</th>
+        <td>{% for number in element %}{{ number }}{% endfor %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <div class="btn-group" role="group">
+    <a href="{{ url_for('lotto_create') }}" class="btn btn-outline-info">다시 생성</a>
+    <a href="{{ url_for('index') }}" class="btn btn-outline-warning">메인으로</a>
+  </div>
+</div>
+{% endblock content %}

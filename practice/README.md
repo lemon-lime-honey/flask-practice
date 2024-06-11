@@ -1,0 +1,1 @@
+[이 저장소](https://github.com/lemon-lime-honey/django_assignments)의 예제를 Flask로 다시 구현

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+  <div class="btn-group" role="group">
+    <a href="{{ url_for('today_dinner') }}" class="btn btn-outline-primary btn-lg">저녁 메뉴 추천</a>
+    <a href="{{ url_for('throw') }}" class="btn btn-outline-success btn-lg">단어 던지기</a>
+    <a href="{{ url_for('lotto_create') }}" class="btn btn-outline-danger btn-lg">로또 번호 생성</a>
+  </div>
+</div>
+{% endblock content %}

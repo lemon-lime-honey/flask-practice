@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+  <h3>로또 번호 쌍의 개수를 입력하세요</h3>
+  <form action="{{ url_for('lotto') }}" method="GET" class="mb-3">
+    <input type="number" placeholder="로또 생성 수" min="0" name="set_number" id="set_number">
+    <input type="submit" for="set_number" value="입력" class="btn btn-primary btn-sm">
+  </form>
+  <a href="{{ url_for('index') }}" class="btn btn-outline-warning">메인으로</a>
+</div>
+{% endblock content %}

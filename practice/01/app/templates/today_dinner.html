@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center mt-5">
+  <h1 class="mb-3">
+    오늘의 추천 저녁 메뉴는 
+    <span class="text-danger"><b>{{ target }}</b></span>
+    입니다.
+  </h1>
+  <div class="btn-group" role="group">
+    <a href="{{ url_for('today_dinner') }}" class="btn btn-outline-info">다시 추천</a>
+    <a href="{{ url_for('index') }}" class="btn btn-outline-warning">메인으로</a>
+  </div>
+</div>
+{% endblock content %}
