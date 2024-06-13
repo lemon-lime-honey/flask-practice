@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container text-center mt-5">
+    <form action="{{ url_for('catch') }}" method="GET">
+      <input type="text" placeholder="무엇이든 입력하세요" name="target" id="target">
+      <input type="submit" for="target" value="throw" class="btn btn-outline-primary">
+    </form>
+    <a href="{{ url_for('index') }}" class="btn btn-outline-warning">메인으로</a>
+  </div>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container text-center mt-5">
+    <h2>{{ target }}</h2>
+    <div class="btn-group" role="group">
+      <a href="{{ url_for('throw') }}" class="btn btn-outline-info">다시 던지기</a>
+      <a href="{{ url_for('index') }}" class="btn btn-outline-warning">메인으로</a>
+    </div>
+  </div>
+{% endblock content %}

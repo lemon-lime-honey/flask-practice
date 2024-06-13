@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container text-center mt-5 fs-1">
+    <div class="container mb-3">
+      <h2>숫자 출력</h2>
+      <div class="btn-group" role="group" aria-label="Print Number">
+        <a href="{{ url_for('number_print', number=1) }}" class="btn btn-secondary">1</a>
+        <a href="{{ url_for('number_print', number=10) }}" class="btn btn-secondary">10</a>
+        <a href="{{ url_for('number_print', number=20) }}" class="btn btn-secondary">20</a>
+        <a href="{{ url_for('number_print', number=100) }}" class="btn btn-secondary">100</a>
+      </div>
+    </div>
+    <div class="container mb-3">
+      <h2>숫자 계산</h2>
+      <div class="btn-group" role="group" aria-label="Calculate">
+        <a href="{{ url_for('calculate', number1=2, number2=1) }}" class="btn btn-secondary">2 1</a>
+        <a href="{{ url_for('calculate', number1=10, number2=5) }}" class="btn btn-secondary">10 5</a>
+        <a href="{{ url_for('calculate', number1=8, number2=4) }}" class="btn btn-secondary">8 4</a>
+        <a href="{{ url_for('calculate', number1=30, number2=15) }}" class="btn btn-secondary">30 15</a>
+      </div>
+    </div>
+    <a type="button" href="{{ url_for('throw') }}" class="btn btn-lg btn-outline-primary">숫자 던지기</a>
+  </div>
+{% endblock content %}
