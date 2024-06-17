@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import "form.html" as wtf %}
+
+{% block content %}
+  <div class="container text-center mt-5">
+    <h2 class="mb-3">항목 추가하기</h2>
+    <div class="card m-auto text-start" style="width: 25rem;">
+      <div class="card-body">
+      {{ wtf.quick_form(form) }}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block script %}
+  <script>
+    document.getElementById("deadline").value = new Date().toISOString().substring(0, 10)
+  </script>
+{% endblock script %}
