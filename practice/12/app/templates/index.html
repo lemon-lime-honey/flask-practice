@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{# {% load static %} #}
+{% block style %}{% endblock style %}
+{% block body %}
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 g-md-3 g-lg-3">
+    {% if albums %}
+      {% for album in albums %}
+      <div class="col">
+        <div class="card">
+          <div class="card-img-top">
+            <img src="{{ url_for('static', filename=album.image) }}">
+          </div>
+          <div class="card-body">
+            {{ album.content }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% endblock body %}
