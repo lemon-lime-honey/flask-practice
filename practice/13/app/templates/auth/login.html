@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container card border-dark m-auto w-25 mt-5">
+  <div class="card-header bg-transparent text-center h3">로그인</div>
+  <div class="card-body">
+  {% for error in errors %}
+    <div class="invalid-feedback">{{ error }}</div>
+  {% endfor %}
+    <form action="{{ url_for('auth.login') }}" method="POST" class="needs-validation" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="mb-3">
+        {{ form.username.label(class='form-label') }}
+        {{ form.username(class='form-control') }}
+      </div>
+      <div class="mb-3">
+        {{ form.password.label(class='form-label') }}
+        {{ form.password(class='form-control') }}
+      </div>
+      <div class="form-check mb-3">
+        {{ form.remember_me(class='form-check-input') }}
+        {{ form.remember_me.label(class='form-check-label') }}
+      </div>
+      <div class="d-flex justify-content-between">
+        <a href="{{ url_for('reviews.index') }}" class="btn btn-outline-danger me-1">뒤로가기</a>
+        <input type="submit" class="btn btn-outline-primary" value="로그인">
+      </div>
+    </form>
+  </div>
+  <div class="card-footer bg-transparent text-center">
+    <a href="{{ url_for('auth.register') }}" class="btn ms-1">회원가입</a>
+  </div>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+  (() => {
+    const forms = document.querySelectorAll('.needs-validation')
+
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
+{% endblock script %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block style %}{% endblock style %}
+{% block content %}
+<div class="container w-75">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title mb-3">{{ review.title }}</h2>
+      <h5 class="card-subtitle text-info-emphasis mb-2">{{ review.book }}</h5>
+      <h6 class="card-subtitle text-body-secondary text-end">{{ review.account.username }} | 등록 {{ review.created_at.strftime('%Y%m%d %H:%M') }}{% if review.created_at != review.updated_at %} | 수정 {{ review.updated_at.strftime('%Y%m%d %H:%M') }}{% endif %}</h6>
+      <hr>
+      <p>{{ review.content }}</p>
+      <hr>
+      <form action="{{ url_for('reviews.detail', id=review.id) }}" method="POST" class="mb-3">
+        {{ commentform.hidden_tag() }}
+        <div class="d-flex">
+          {{ commentform.content(class='form-control me-2') }}
+          <input type="submit" class="btn btn-outline-success" value="등록">
+        </div>
+      </form>
+      {% if comments %}
+          {% for comment in comments %}
+            <div class="d-flex justify-content-between">
+              {{ comment.content }}
+              <div class="d-flex">
+                {{ comment.account.username }}
+                {{ comment.updated_at.strftime('%Y%m%d %H:%M') }}
+              </div>
+            </div>
+          {% endfor %}
+      {% else %}
+      <p>아직 댓글이 없어요</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

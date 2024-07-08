@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block style %}{% endblock style %}
+{% block content %}
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 g-md-3 g-lg-3">
+    {% if reviews %}
+      {% for review in reviews %}
+      <div class="col">
+        <a href="{{ url_for('reviews.detail', id = review.id) }}" style="text-decoration: none;">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{ review.book }}</h4>
+              <h6 class="card-subtitle text-end">{{ review.account.username }}</h6>
+              <div class="card-text text-truncate">{{ review.title }}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="modal fade" id="review{{ review.id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="reviewModalLabel">{{ review.title }}</h2>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex justify-content-end">
+                <p class="fs-6 text-secondary">{{ review.book }}</p>
+                <p class="fs-6 px-2 text-secondary">|</p>
+                <p class="fs-6 text-secondary">{{ review.account.username }}</p>
+              </div>
+              <p class="fs-5">{{ review.content }}</p>
+            </div>
+            <div class="modal-footer">
+              {% if comments %}
+              {% else %}
+              <p class="mx-auto">아직 댓글이 달리지 않았어요</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}
