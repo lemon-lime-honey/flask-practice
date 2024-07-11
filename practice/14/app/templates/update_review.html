@@ -1,0 +1,33 @@
+<div class="modal fade" id="update" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">후기 수정</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ url_for('reviews.detail', id = review.id) }}" method="POST">
+          {{ updateform.hidden_tag() }}
+          <div class="mb-3">
+            <div class="form-floating mb-2">
+              {{ updateform.title(class='form-control', placeholder='제목을 입력하세요') }}
+              {{ updateform.title.label(class='form-label') }}
+            </div>
+            <div class="form-floating mb-2">
+              {{ updateform.book(class='form-control', placeholder='책 제목을 입력하세요') }}
+              {{ updateform.book.label(class='form-label') }}
+            </div>
+            <div class="form-floating mb-3">
+              {{ updateform.content(class='form-control', placeholder='내용을 입력하세요', style='height: 100px;') }}
+              {{ updateform.content.label(class='form-label') }}
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">닫기</button>
+            <input type="submit" class="btn btn-outline-primary" value="저장">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
